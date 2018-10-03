@@ -16,7 +16,7 @@ class UserController extends Controller
     	$new_user->gender = $request->gender;
     	$new_user->education = $request->education;
     	$new_user->password = Hash::make($request->password);
-    	$new_user->login_token = generateRandomString(16);
+    	$new_user->login_token = $this->generateRandomString(16);
     	$new_user->save();
     	return $new_user;
     }
