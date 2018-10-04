@@ -58,6 +58,24 @@ class UserController extends Controller
         ];
     }
 
+    function postLogin(Request $request) {
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                return [
+                    'status'    => 1,
+                    'message'   => 'OK',
+                    'user'    => $user
+                ];
+            }
+        }
+        return [
+            'status'    => 2,
+            'message'   => 'Invalid email or password!',
+            'user'    => []
+        ];
+    }
+
 	function generateRandomString($length = 10) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
