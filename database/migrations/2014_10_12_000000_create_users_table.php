@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->string('age');
             $table->string('education');
+            $table->string('favorite_subjects')->nullable();
             $table->string('login_token');
             $table->rememberToken();
             $table->timestamps();
