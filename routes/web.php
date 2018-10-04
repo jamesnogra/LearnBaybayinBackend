@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::post('/user/register', 'UserController@postRegister');
+Route::post('/user/update-favorite-subjects', 'UserController@postUpdateFavoriteSubjects');

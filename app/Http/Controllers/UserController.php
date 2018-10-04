@@ -33,6 +33,15 @@ class UserController extends Controller
         ];
     }
 
+    function postUpdateFavoriteSubjects(Request $request) {
+        $user = User::where('login_token', $request->login_token)->update(['favorite_subjects'=>$request->favorite_subjects]);
+        return [
+            'status'    => 1,
+            'message'   => 'OK',
+            'user'    => $user
+        ];
+    }
+
 	function generateRandomString($length = 10) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
