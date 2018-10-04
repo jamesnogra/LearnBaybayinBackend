@@ -42,6 +42,22 @@ class UserController extends Controller
         ];
     }
 
+    function postCheckToken(Request $request) {
+        $user = User::where('login_token', $request->login_token)->first();
+        if ($user) {
+            return [
+                'status'    => 1,
+                'message'   => 'OK',
+                'user'    => $user
+            ];
+        }
+        return [
+            'status'    => 2,
+            'message'   => 'Login oken is invalid or expired.',
+            'user'    => []
+        ];
+    }
+
 	function generateRandomString($length = 10) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
