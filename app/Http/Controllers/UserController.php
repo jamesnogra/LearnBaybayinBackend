@@ -14,7 +14,7 @@ class UserController extends Controller
             return [
                 'status'    => 2,
                 'message'   => 'Email already exists.',
-                'result'    => $new_user
+                'result'    => [],
             ];
         }
     	$new_user = new User;
