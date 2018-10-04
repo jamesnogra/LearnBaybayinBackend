@@ -63,7 +63,8 @@ class UserController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 //update the login token
-                User::where('email', $request->email)->update(['login_token'=>$this->generateRandomString(16)]);
+                $user->new_login_token = $this->generateRandomString(16);
+                User::where('email', $request->email)->update(['login_token'=>$user->new_login_token);
                 return [
                     'status'    => 1,
                     'message'   => 'OK',
