@@ -11,6 +11,9 @@ class ScoreController extends Controller
     function postAddScore(Request $request) {
     	$user = User::where('login_token', $request->login_token)->first();
         if ($user) {
+        	//delete first the existing score if there is one
+        	Score::where('user_id', $user->id)->where('stage', $request->stage)->where('level', $request->level)->delete();
+            //add the score
             $new_score = new Score;
             $new_score->user_id = $user->id;
             $new_score->score = $request->score;
