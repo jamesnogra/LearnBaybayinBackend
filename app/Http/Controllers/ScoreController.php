@@ -35,4 +35,9 @@ class ScoreController extends Controller
             'user'    	=> []
         ];
     }
+
+    function getScore(Request $request) {
+    	$user = User::where('login_token', $request->login_token)->first();
+        return Score::where('user_id', $user->id)->get();
+    }
 }

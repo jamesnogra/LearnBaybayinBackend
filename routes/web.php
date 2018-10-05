@@ -21,3 +21,4 @@ Route::post('/user/check-token', 'UserController@postCheckToken');
 Route::post('/user/login', 'UserController@postLogin');
 
 Route::post('/score/add-score', 'ScoreController@postAddScore');
+Route::get('/score/get-score', 'ScoreController@getScore');
