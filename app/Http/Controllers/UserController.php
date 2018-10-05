@@ -53,7 +53,7 @@ class UserController extends Controller
         }
         return [
             'status'    => 2,
-            'message'   => 'Login oken is invalid or expired.',
+            'message'   => 'Login token is invalid or expired.',
             'user'    => []
         ];
     }

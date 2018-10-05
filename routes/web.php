@@ -19,3 +19,5 @@ Route::post('/user/register', 'UserController@postRegister');
 Route::post('/user/update-favorite-subjects', 'UserController@postUpdateFavoriteSubjects');
 Route::post('/user/check-token', 'UserController@postCheckToken');
 Route::post('/user/login', 'UserController@postLogin');
+
+Route::post('/score/add-score', 'ScoreController@postAddScore');
