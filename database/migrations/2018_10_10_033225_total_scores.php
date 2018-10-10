@@ -16,6 +16,7 @@ class TotalScores extends Migration
         Schema::create('total_scores', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->integer('score_stage_0')->nullable();
             $table->integer('score_stage_1')->nullable();
             $table->integer('score_stage_2')->nullable();
             $table->integer('score_stage_3')->nullable();
