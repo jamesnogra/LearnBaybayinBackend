@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Score;
+use App\Total_Score;
 
 class ScoreController extends Controller
 {
@@ -45,10 +46,12 @@ class ScoreController extends Controller
         $user = User::where('login_token', $request->login_token)->first();
         $counter = 1;
         $temp_scores = [];
+        $temp_scores['user_id'] = $user->id;
         foreach ($request->scores as $score) {
             $temp_scores['score_stage_'.$counter] = $score;
             $counter++;
         }
+        Total_Score::create($temp_scores);
         return $temp_scores;
     }
 }
