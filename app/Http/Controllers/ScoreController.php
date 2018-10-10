@@ -46,7 +46,7 @@ class ScoreController extends Controller
         $counter = 1;
         $temp_scores = [];
         foreach ($scores as $score) {
-            $temp_scores['score_stage_'.$counter] = $score
+            $temp_scores['score_stage_'.$counter] = $score;
             $counter++;
         }
         return $temp_scores;
