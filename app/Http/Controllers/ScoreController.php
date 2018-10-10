@@ -45,7 +45,7 @@ class ScoreController extends Controller
         $user = User::where('login_token', $request->login_token)->first();
         $counter = 1;
         $temp_scores = [];
-        foreach ($scores as $score) {
+        foreach ($request->scores as $score) {
             $temp_scores['score_stage_'.$counter] = $score;
             $counter++;
         }
