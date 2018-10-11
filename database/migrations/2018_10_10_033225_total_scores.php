@@ -43,6 +43,6 @@ class TotalScores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scores');
+        Schema::dropIfExists('total_scores');
     }
 }

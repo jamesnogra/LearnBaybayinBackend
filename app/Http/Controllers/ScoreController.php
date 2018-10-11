@@ -10,6 +10,7 @@ use App\Total_Score;
 class ScoreController extends Controller
 {
     function postAddScore(Request $request) {
+        header('Access-Control-Allow-Origin: *');
     	$user = User::where('login_token', $request->login_token)->first();
         if ($user) {
         	//delete first the existing score if there is one
@@ -38,11 +39,13 @@ class ScoreController extends Controller
     }
 
     function getScore(Request $request) {
+        header('Access-Control-Allow-Origin: *');
     	$user = User::where('login_token', $request->login_token)->first();
         return Score::where('user_id', $user->id)->get();
     }
 
     function postTotalScores(Request $request) {
+        header('Access-Control-Allow-Origin: *');
         $user = User::where('login_token', $request->login_token)->first();
         $counter = 0;
         $temp_scores = [];

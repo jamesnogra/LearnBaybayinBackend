@@ -9,6 +9,7 @@ use App\User;
 class UserController extends Controller
 {
     function postRegister(Request $request) {
+        header('Access-Control-Allow-Origin: *');
         $check_user = User::where('email', $request->email)->first();
         if ($check_user) {
             return [
@@ -34,6 +35,7 @@ class UserController extends Controller
     }
 
     function postUpdateFavoriteSubjects(Request $request) {
+        header('Access-Control-Allow-Origin: *');
         $user = User::where('login_token', $request->login_token)->update(['favorite_subjects'=>$request->favorite_subjects]);
         return [
             'status'    => 1,
@@ -43,6 +45,7 @@ class UserController extends Controller
     }
 
     function postCheckToken(Request $request) {
+        header('Access-Control-Allow-Origin: *');
         $user = User::where('login_token', $request->login_token)->first();
         if ($user) {
             return [
@@ -59,6 +62,7 @@ class UserController extends Controller
     }
 
     function postLogin(Request $request) {
+        header('Access-Control-Allow-Origin: *');
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
@@ -80,6 +84,7 @@ class UserController extends Controller
     }
 
 	function generateRandomString($length = 10) {
+        header('Access-Control-Allow-Origin: *');
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
 		$randomString = '';
