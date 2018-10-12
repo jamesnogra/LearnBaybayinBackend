@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
@@ -18,6 +19,7 @@ class UserController extends Controller
                 'user'    => [],
             ];
         }
+
     	$new_user = new User;
     	$new_user->email = $request->email;
     	$new_user->name = $request->name;
@@ -27,6 +29,12 @@ class UserController extends Controller
     	$new_user->password = Hash::make($request->password);
     	$new_user->login_token = $this->generateRandomString(16);
     	$new_user->save();
+
+        Mail::send('sign-up', ['user' => $new_user], function ($m) use ($new_user) {
+            $m->from('james@learnbaybayin.iamcebu.com', 'Learn Baybayin Admin');
+            $m->to($new_user->email, $new_user->name)->subject('Thanks for signing up...');
+        });
+
     	return [
             'status'    => 1,
             'message'   => 'OK',
