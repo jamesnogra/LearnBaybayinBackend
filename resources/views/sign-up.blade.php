@@ -24,7 +24,7 @@
 		<tr>
 			<td>
 				<center><img src="https://learnbaybayin.iamcebu.com/img/baybayin-96.png" style="margin-top:-50px;" /></center>
-				<h3>Hi <?php echo $new_user->name; ?>,</h3>
+				<h3>Hi <?php echo $user->name; ?>,</h3>
 				<p style="text-align:justify;">Thank you for trying out <i>Learn Baybayin</i> app. You are one of the first few testers of the app. Don't worry, we won't send you a lot of emails. We would like to inform you that only your email, first name, age, educational attainment, and gender are collected. The information the app will collect from you will be used to study how users are able to learn the Baybayin script. If you still have questions, please take time in reading our <a target="_blank" href="http://learnbaybayinapp.iamcebu.com/tos.html">terms and conditions</a>.</p>
 				<p>Again, thank you in taking part of this research...</p>
 				<h3>Sincerely,<br />James N.</h3>
