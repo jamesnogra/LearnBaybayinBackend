@@ -31,7 +31,7 @@ class UserController extends Controller
     	$new_user->save();
 
         Mail::send('sign-up', ['user' => $new_user], function ($m) use ($new_user) {
-            $m->from('james@learnbaybayin.iamcebu.com', 'Learn Baybayin Admin');
+            $m->from('james@iamcebu.com', 'Learn Baybayin Admin');
             $m->to($new_user->email, $new_user->name)->subject('Thanks for signing up...');
         });
 
